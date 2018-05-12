@@ -20,5 +20,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
+  .wrapper-box{
+    height: 100%;
+  }
 </style>

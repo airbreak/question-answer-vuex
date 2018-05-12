@@ -4,8 +4,8 @@
   <div class="wrapper-box">
     <header class="your-scores">
       <span class="score-num">{{score}}</span>
+      <div class="result-tip">{{scoreTips}}</div>
     </header>
-    <div class="result-tip">{{scoreTips}}</div>
     <div class="share-button" @click="showCover"></div>
     <div class="share-code">
       <header class="share-header">关注我们，获取答案</header>
@@ -73,63 +73,58 @@ export default {
 <style lang="less">
   body{
     background-image: url(../../images/4-1.jpg);
-    padding-top: 1.2rem;
+    padding-top: .2rem;
   }
-  .your-scores-container{
-    width: 9.7rem;
-    height: 9.1rem;
+  .wrapper-box{
+    height: 100%;
+  }
+  .your-scores{
+    width: 1.94rem;
+    height: 1.94rem;
     background: url(../../images/4-2.png) no-repeat;
     background-size: 100% 100%;
     margin: 0 auto 0;
     position: relative;
-    .your-scores{
+    .score-num{
+      font-family: Tahoma,Helvetica,Arial;
+      color: #a51d31;
       position: absolute;
-      width: 100%;
-      text-indent: 3.3rem;
-      top: 4.7rem;
-      font-size: 1.4rem;
-      font-weight: 900;
-      -webkit-text-stroke: 0.05rem #412318;
-      font-family: 'Microsoft YaHei';
-      .score-num{
-        font-family: Tahoma,Helvetica,Arial;
-        color: #a51d31;
-      }
-      .fenshu{
-        color: #a51d31;
-      }
+      top: 13%;
+      right:20%;
+      transform: translateX(50%);
     }
     .result-tip{
       position: absolute;
-      top: 7rem;
-      width: 9rem;
-      left: 0.6rem;
+      top: 60%;
+      left: 50%;
+      transform: translateX(-50%);
       color: #3e2415;
-      font-size: 0.65rem;
+      font-size: 0.14rem;
       text-align: center;
     }
   }
   .share-button{
-    width: 6.025rem;
-    height: 2.4rem;
-    margin: 0.8rem auto 0;
-    background: url(../../images/4-3.png) no-repeat 0.4rem 0;
-    background-size: 5.825rem 100%;
+    width: 2.33rem / 2;
+    height: .96rem / 2;
+    margin: .4rem auto;
+    background-image: url(../../images/4-3.png);
+    background-repeat: no-repeat;
+    background-size: 2.33rem/2 .96rem/2
   }
   .share-code{
-    width: 5.3rem;
-    margin: 1.5rem auto 0;
+    margin: .9rem auto 0 auto;
+    text-align: center;
     .share-header{
       color: #664718;
-      font-size: 0.475rem;
+      font-size: 0.16rem;
       font-family: 'Microsoft YaHei';
-      width: 7rem;
       font-weight: 500;
+      text-align: center;
     }
     .code-img{
-      height: 5.3rem;
-      width: 5.3rem;
-      margin-top: 0.5rem;
+      height: 2rem;
+      width: 2rem;
+      margin-top: 0.25rem;
     }
   }
   .share-cover{
@@ -143,11 +138,10 @@ export default {
     opacity: 0.92;
   }
   .share-img{
-    height: 10.975rem;
-    width: 11.95rem;
+    height: 3.39rem / 2;
+    width: 4.78rem / 2;
     position: fixed;
-    top: 0.5rem;
-    left: 50%;
-    margin-left: -5.975rem;
+    right: .5rem;
+    top: .1rem;
   }
 </style>

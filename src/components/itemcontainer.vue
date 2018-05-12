@@ -4,6 +4,7 @@
     <section class="item-container-box">
       <header class="top-tips">
         <span class="num-tip" v-if="component == 'home'">{{level}}</span>
+        <span class="num-tip" v-else>第{{itemNum}}题</span>
       </header>
       <div v-if="component== 'home'">
         <div class="home-logo item-container-style"></div>
@@ -13,7 +14,7 @@
         <div class="item-back item-container-style">
           <div class="item-list-container" v-if="itemDetail.length>0">
             <header class="item-title">{{itemDetail[itemNum - 1].topic_name}}</header>
-            <ul>
+            <ul class="question-ul-box">
               <li v-for="(item, index) in itemDetail[itemNum - 1].topic_answer"
                   @click="choosed(index, item.topic_answer_id)" class="item-list">
                     <span class="option-style" :class="{'has-choosed':chooseNum==index}">
@@ -101,6 +102,7 @@ export default {
 
 <style lang="less" scoped>
   .item-container-box {
+    height: 100%;
     position: relative;
     .top-tips {
       position: absolute;
@@ -147,8 +149,8 @@ export default {
       width: .87rem;
       background-size: 100% 100%;
       position: absolute;
-      top: 1.85rem;
       left: 50%;
+      top:65%;
       transform: translateX(-50%);
       background-repeat: no-repeat;
     }
@@ -162,47 +164,46 @@ export default {
       background-image: url(../images/3-1.png);
     }
     .item-list-container {
-      position: absolute;
-      height: 7.0rem;
-      width: 8.0rem;
-      top: 2.4rem;
-      left: 3rem;
+      width: 100%;
+      margin: 0rem auto;
       -webkit-font-smoothing: antialiased;
-    }
-    .item-title {
-      font-size: 0.65rem;
-      color: #fff;
-      line-height: 0.7rem;
-    }
-    .item-list {
-      font-size: 0;
-      margin-top: 0.4rem;
-      width: 10rem;
-      span {
-        display: inline-block;
-        font-size: 0.6rem;
+      .item-title {
+        font-size: 0.2rem;
         color: #fff;
-        vertical-align: middle;
+        line-height: 0.35rem;
       }
-      .option-style {
-        height: 0.725rem;
-        width: 0.725rem;
-        border: 1px solid #fff;
-        border-radius: 50%;
-        line-height: 0.725rem;
-        text-align: center;
-        margin-right: 0.3rem;
-        font-size: 0.5rem;
-        font-family: 'Arial';
-      }
-      .has-choosed {
-        background-color: #ffd400;
-        color: #575757;
-        border-color: #ffd400;
-      }
-      .option-detail {
-        width: 7.5rem;
-        padding-top: 0.11rem;
+      .question-ul-box {
+        margin-left: .2rem;
+        .item-list {
+          font-size: 0;
+          margin: 0.1rem 0;
+          display: flex;
+          align-items: center;
+          span {
+            display: inline-block;
+            font-size: 0.16rem;
+            color: #fff;
+            vertical-align: middle;
+          }
+          .option-style {
+            height: 0.25rem;
+            width: 0.25rem;
+            border: 0.01rem solid #fff;
+            border-radius: 50%;
+            line-height: 0.3rem;
+            margin-right: 0.15rem;
+            font-size: 0.14rem;
+            font-family: 'Arial';
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .has-choosed {
+            background-color: #ffd400;
+            color: #575757;
+            border-color: #ffd400;
+          }
+        }
       }
     }
   }
