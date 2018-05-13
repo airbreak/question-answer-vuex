@@ -26,7 +26,7 @@ export default {
       score: 0,
       scoreTips: '',
       showHide: false,
-      rightAnswer: [2, 7, 12, 13, 18],
+      rightAnswer: [2, 7, 12, 14, 18],
       scoreTipsArr: ['不行啊', '还可以', '智商挺厉害的哦', '离爆表还有一点点', '我们需要你，加入我们']
     }
   },
