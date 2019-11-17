@@ -7,15 +7,15 @@
         <span class="num-tip" v-else>第{{itemNum}}题</span>
       </header>
       <div v-if="component== 'home'">
-        <div class="home-logo item-container-style"></div>
+        <div class="home-logo item-container-style" :style="homeBgStyle"></div>
         <router-link to="item" class="start button-style"></router-link>
       </div>
       <div v-if="component == 'item'">
-        <div class="item-back item-container-style">
+        <div class="item-back item-container-style" :style="itemBackBgStyle">
           <div class="item-list-container" v-if="itemDetail.length>0">
             <header class="item-title">{{itemDetail[itemNum - 1].topic_name}}</header>
             <ul class="question-ul-box">
-              <li v-for="(item, index) in itemDetail[itemNum - 1].topic_answer"
+              <li v-for="(item, index) in itemDetail[itemNum - 1].topic_answer" :key="item.id"
                   @click="choosed(index, item.topic_answer_id)" class="item-list">
                     <span class="option-style" :class="{'has-choosed':chooseNum==index}">
                       {{chooseType(index)}}
@@ -39,7 +39,13 @@ export default {
     return {
       itemId: null, // 题目ID
       chooseNum: null, // 选中的答案索引
-      choosedId: null // 选中答案id
+      choosedId: null, // 选中答案id
+      homeBgStyle: {
+        backgroundImage: 'url(' + require('@/images/1-2.png') + ')'
+      },
+      itemBackBgStyle: {
+        backgroundImage: 'url(' + require('@/images/2-1.png') + ')'
+      }
     }
   },
   props: ['component'],
@@ -135,12 +141,10 @@ export default {
       transform: translateX(-50%);
     }
     .home-logo {
-      background-image: url(../images/1-2.png);
       background-size: 2.63rem 100%;
       background-position: right center;
     }
     .item-back {
-      background-image: url(../images/2-1.png);
       background-size: 100% 100%;
     }
     .button-style {

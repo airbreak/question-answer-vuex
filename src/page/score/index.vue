@@ -2,7 +2,7 @@
 <!--这个是一个注释-->
 <template>
   <div class="wrapper-box">
-    <header class="your-scores">
+    <header class="your-scores" :style="scoreStyle">
       <span class="score-num">{{score}}</span>
       <div class="result-tip">{{scoreTips}}</div>
     </header>
@@ -27,7 +27,10 @@ export default {
       scoreTips: '',
       showHide: false,
       rightAnswer: [2, 7, 12, 14, 18],
-      scoreTipsArr: ['不行啊', '还可以', '智商挺厉害的哦', '离爆表还有一点点', '我们需要你，加入我们']
+      scoreTipsArr: ['不行啊', '还可以', '智商挺厉害的哦', '离爆表还有一点点', '我们需要你，加入我们'],
+      scoreStyle: {
+        backgroundImage: 'url(' + require('@/images/4-2.png') + ')'
+      }
     }
   },
   computed: mapState(['answerid']),
@@ -81,7 +84,6 @@ export default {
   .your-scores{
     width: 1.94rem;
     height: 1.94rem;
-    background: url(../../images/4-2.png) no-repeat;
     background-size: 100% 100%;
     margin: 0 auto 0;
     position: relative;
